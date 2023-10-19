@@ -1,0 +1,13 @@
+import requests
+import pandas as pd
+
+api_url="https://data.binance.com/api/v3/ticker/24hr"
+
+response=requests.get(api_url)
+data=response.json()
+
+df=pd.DataFrame(data)
+
+df.to_csv("binance_data.csv",index=False)
+
+print("CSV dataset created successfully")
